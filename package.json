@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "displayName": "Plugin Name",
+  "displayName": "Samsung CAC Modern",
   "name": "homebridge-samsung-cac-modern",
   "version": "0.1.0",
   "author": "Daniel Parnell <me@danielparnell.com>",
@@ -23,7 +22,10 @@
     "prepublishOnly": "npm run lint && npm run build"
   },
   "keywords": [
-    "homebridge-plugin"
+    "homebridge-plugin",
+    "mim-h02",
+    "samsung",
+    "Airconditioner"
   ],
   "dependencies": {
     "samsung-cac": "file:../samsung-cac",
