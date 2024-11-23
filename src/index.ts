@@ -3,7 +3,7 @@ import { Service, API, AccessoryConfig, Logging, AccessoryPlugin, Controller,
 
 import { Connection, DeviceState, OperationMode, PowerMode } from 'samsung-cac';
 
-import * as forge from 'node-forge';
+import forge from 'node-forge';
 import * as net from 'net';
 import { Duplex } from 'stream';
 
@@ -17,7 +17,7 @@ class NodeTLSSocket extends Duplex {
 
     this.socket = new net.Socket();
 
-    this.client = (forge as any).default.tls.createConnection({
+    this.client = forge.tls.createConnection({
       server: false,
 
       verify: () => {
@@ -57,8 +57,8 @@ class NodeTLSSocket extends Duplex {
 
   }
 
-  write(chunk: unknown): boolean {
-    this.client.prepare((chunk as any).toString('binary'));
+  write(chunk: string | Uint8Array | Buffer): boolean {
+    this.client.prepare(chunk.toString('binary'));
 
     return true;
   }
