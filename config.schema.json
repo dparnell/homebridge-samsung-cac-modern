@@ -1,6 +1,6 @@
 {
   "pluginAlias": "SamsungCacModern",
-  "pluginType": "platform",
+  "pluginType": "accessory",
   "singular": true,
   "schema": {
     "type": "object",
