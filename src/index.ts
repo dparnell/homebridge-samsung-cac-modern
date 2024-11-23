@@ -1,9 +1,5 @@
 import { Service, API, AccessoryConfig, Logging, AccessoryPlugin, Controller,
-  ControllerServiceMap, CharacteristicValue, Characteristic,
-  DynamicPlatformPlugin,
-  PlatformAccessory,
-  Logger,
-  PlatformConfig} from 'homebridge';
+  ControllerServiceMap, CharacteristicValue, Characteristic} from 'homebridge';
 
 import { Connection, DeviceState, OperationMode, PowerMode } from 'samsung-cac';
 
@@ -71,7 +67,7 @@ class NodeTLSSocket extends Duplex {
 /**
  * This is the name of the platform that users will use to register the plugin in the Homebridge config.json
  */
-export const PLATFORM_NAME = 'SamsungCacModern';
+// export const PLATFORM_NAME = 'SamsungCacModern';
 
 /**
  * This must match the name of your plugin as defined the package.json
@@ -324,29 +320,9 @@ export class SamsungCacThermostatAccessory implements AccessoryPlugin {
 
 }
 
-export class SamsungCacPlatform implements DynamicPlatformPlugin {
-
-  // this is used to track restored cached accessories
-  public readonly accessories: PlatformAccessory[] = [];
-
-  constructor(
-      public readonly log: Logger,
-      public readonly config: PlatformConfig,
-      public readonly api: API,
-  ) {
-    log.info('Initialized Samsung CAC Modern Platform');
-  }
-
-  configureAccessory(accessory: PlatformAccessory): void {
-    // add the restored accessory to the accessories cache so we can track if it has already been registered
-    this.accessories.push(accessory);
-  }
-}
-
 /**
  * This method registers the platform with Homebridge
  */
 export default (api: API) => {
-  api.registerPlatform(PLATFORM_NAME, SamsungCacPlatform);
-  api.registerAccessory(PLUGIN_NAME, PLATFORM_NAME, SamsungCacThermostatAccessory);
+  api.registerAccessory(PLUGIN_NAME, 'SamsungCacModern', SamsungCacThermostatAccessory);
 };
