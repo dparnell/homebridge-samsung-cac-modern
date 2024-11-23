@@ -1,0 +1,14 @@
+{
+  "watch": [
+    "src"
+  ],
+  "ext": "ts",
+  "ignore": [],
+  "exec": "tsc && homebridge -I -D",
+  "signal": "SIGTERM",
+  "env": {
+    "NODE_OPTIONS": "--trace-warnings",
+    "HOMEBRIDGE_CONFIG_UI": "1",
+    "HOMEBRIDGE_CONFIG_UI_PORT": "8080"
+  }
+}

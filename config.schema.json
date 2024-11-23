@@ -1,0 +1,28 @@
+{
+  "pluginAlias": "SamsungCacModern",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Samsung Air Conditioner"
+      },
+
+      "host": {
+        "title": "Host",
+        "type": "string",
+        "required": true
+      },
+
+      "token": {
+        "title": "Token",
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+}
